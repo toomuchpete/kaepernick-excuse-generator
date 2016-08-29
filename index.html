@@ -12,17 +12,18 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Kaepernick Excuse Generator</h1>
-      <h2 class="project-tagline">A helpful generator for people who want to avoid discussing the issues Kaepernick raised without looking too racist.</h2>
-      <a href="https://github.com/toomuchpete/kaepernick-excuse-generator" class="btn">View on GitHub</a>
-      <a href="https://github.com/toomuchpete/kaepernick-excuse-generator/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/toomuchpete/kaepernick-excuse-generator/tarball/master" class="btn">Download .tar.gz</a>
+      <h2 class="project-tagline">A helpful tool for people who want to avoid discussing the issues Kaepernick raised without looking too racist.</h2>
+      <a onClick="displayNewExcuse(); return false;" href="#" class="btn">Get Another One</a>
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="this-is-a-test" class="anchor" href="#this-is-a-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>This is a test</h3>
+      <h3 id="title" style="font-size: 3em;">
+        &nbsp;
+      </h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+      <p id="description" style="margin-bottom: 250px">
+        &nbsp;
+      </p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/toomuchpete/kaepernick-excuse-generator">Kaepernick Excuse Generator</a> is maintained by <a href="https://github.com/toomuchpete">toomuchpete</a>.</span>
@@ -35,3 +36,46 @@
   
   </body>
 </html>
+
+<script type="text/javascript">
+  function ready(fn) {
+    if (document.readyState != 'loading'){
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  function getExcuse() {
+    var excuses = [
+      {
+        "title": "Title I", 
+        "description": 
+        "This is description number 1."
+      },
+      {
+        "title": "Title II", 
+        "description": 
+        "This is description number 2."
+      },
+      {
+        "title": "Title III", 
+        "description": 
+        "This is description number 3."
+      },
+    ];
+
+    return excuses[Math.floor(Math.random()*excuses.length)];
+  }
+
+  function displayNewExcuse() {
+    var title  = document.querySelectorAll('#title')[0];
+    var desc   = document.querySelectorAll('#description')[0];
+    var excuse = getExcuse();
+
+    title.innerHTML = excuse.title;
+    desc.innerHTML  = excuse.description;
+  }
+
+  ready(displayNewExcuse);
+</script>
